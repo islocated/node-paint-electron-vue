@@ -5,38 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./public/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    
+    <div id="message-app">
+        <ul>
+            <li v-for="message in messages">
+                {{ message.text }}
+            </li>
+        </ul>
+
+        <form @submit.prevent="sendMessage">
+            <input id="m" autocomplete="off" v-model="msg"/><button type="submit">Send</button>
+        </form>
+    </div>   
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js" onload="window.$ = window.jQuery = module.exports;"></script>
-
-    <script>
-        $(() => {
-            let socket = io("http://localhost:8000");
-
-            $('form').submit((e) =>{
-                e.preventDefault(); //prevents page reload
-                
-                //Send to server
-                socket.emit('chat message', $('#m').val());
-                
-                //Clear input box
-                $('#m').val('');
-
-                //prevent page reload
-                return false;
-            });
-
-            socket.on('chat message', (msg) => {
-                $('#messages').append($('<li>').text(msg));
-            });
-        })
-        
-    </script>
+    
+    <script src="./message-app.js"></script>    
 </body>
 </html>
