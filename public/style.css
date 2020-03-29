@@ -1,8 +1,112 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font: 13px Helvetica, Arial; }
-form { background: #fff; padding: 3px; position: fixed; bottom: 0; width: 100%; border-color: #000; border-top-style: solid; border-top-width: 1px;}
-form input { border-style: solid; border-width: 1px; padding: 10px; width: 85%; margin-right: .5%; }
-form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; margin-left: 2%; }
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Tahoma";
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    align-items: stretch;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.channels {
+    cursor: pointer;
+    background-color: #2f3136;
+    flex-shrink: 0;
+    flex-basis: 200px;
+}
+
+.messages {
+    flex-grow: 1;
+    display: flex;
+}
+
+.header {
+    background-color: #383838;
+    border-bottom: 1px solid #26292f;
+}
+
+.message-main {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #36393f;
+}
+
+.message-main ul {
+    padding: 10px;
+    list-style-type: none;
+}
+
+.message-main li {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.message-bar {
+    display: flex;
+}
+
+.message-bar .input {
+    flex-grow: 1;
+    color: #ccc;
+    border: none;
+    padding: 10px;
+    background-color: #40444b;
+    font-family: "Tahoma";
+    font-size: 16px;
+}
+
+.message-bar .button {
+    color: #ccc;
+    border: none;
+    padding: 10px;
+    background-color: #40444b;
+    font-family: "Tahoma";
+    font-size: 16px;
+}
+
+.users {
+    cursor: pointer;
+    background-color: #2f3136;
+    flex-shrink: 0;
+    flex-basis: 200px;
+}
+
+/* Chrome Custom Scroll Bars */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #666; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #555; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #444; 
+}
