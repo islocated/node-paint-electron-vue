@@ -59,12 +59,63 @@ input:focus, textarea:focus, select:focus, button:focus {
     color: #ccc;
 }
 
+.message {
+    display: flex;
+}
+
+.message:hover {
+    background-color: #2f3136;
+}
+
+.message-time {
+    font-size: .70em;
+    color: #aaa;
+}
+
+.message-user-name {
+    font-size: .70em;
+    color: #aaa;
+}
+
+.message-text {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.message-user-image {
+    width: 40px;
+    height: 40px;
+    margin-top: 7px;
+}
+
 .message-bar {
     display: flex;
 }
 
-.message-bar .input {
-    flex-grow: 1;
+.message-input {
+    flex: 1;
+    color: #ccc;
+    border: none;
+    border-right: 1px solid #26292f;
+    padding: 10px;
+    background-color: #40444b;
+    font-family: "Tahoma";
+    font-size: 16px;
+}
+
+.username-input {
+    flex: 0;
+    color: #ccc;
+    border: none;
+    border-right: 1px solid #26292f;
+    padding: 10px;
+    background-color: #40444b;
+    font-family: "Tahoma";
+    font-size: 16px;
+}
+
+.message-button {
+    flex: 0;
     color: #ccc;
     border: none;
     padding: 10px;
@@ -73,13 +124,8 @@ input:focus, textarea:focus, select:focus, button:focus {
     font-size: 16px;
 }
 
-.message-bar .button {
-    color: #ccc;
-    border: none;
-    padding: 10px;
-    background-color: #40444b;
-    font-family: "Tahoma";
-    font-size: 16px;
+.message-button:disabled{
+    color: #777;
 }
 
 .users {

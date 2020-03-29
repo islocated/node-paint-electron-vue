@@ -33,14 +33,21 @@
                 <div class="message-main">
                     <ul>
                         <li v-for="message in messages">
-                            {{ message.text }}
+                            <div class="message row">
+                                <img src="#" class="message-user-image" />
+                                <div class="message-text">
+                                    <span class="message-user-name">{{ message.username }}</span> <span class="message-time">{{ message.time | timestamp}}</span><br/>
+                                    {{ message.text }}
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
                 
                 <form @submit.prevent="sendMessage" class="message-bar row">
-                    <input id="m" class="input" autocomplete="off" v-model="msg"/>
-                    <button class="button" type="submit">Send</button>
+                    <input class="username-input" autocomplete="off" v-model="username" placeholder="Enter username"/>
+                    <input class="message-input" autocomplete="off" v-model="msg" placeholder="Type message here"/>
+                    <button class="message-button" type="submit" :disabled="msg === '' || username === ''">Send</button>
                 </form>
             </div>
 

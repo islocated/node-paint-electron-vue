@@ -1,31 +1,40 @@
-let socket = io('http://localhost:8000');
+const socket = io('http://localhost:8000');
 
-let app = new Vue({
+const app = new Vue({
     el: '#message-app',
     data: {
         messages : [],
         msg : '',
         users : [],
-        channels : []
+        channels : [],
+        username : ''
     },
     created() {
         socket.on('chat message', async (msg) => {
-            this.messages.push({
-                text : msg
-            });
+            this.messages.push(msg);
 
             await this.$nextTick();
             this.scrollToEnd();
         });
     },
     methods : {
-        sendMessage() {
-            socket.emit('chat message', this.msg); 
+        sendMessage(){
+            const message = {
+                text: this.msg, 
+                time: new Date().toLocaleString(),
+                username: this.username
+            }
+            socket.emit('chat message', message); 
             this.msg = '';
         },
         scrollToEnd(){
-            let container = this.$el.querySelector(".message-main");
+            const container = this.$el.querySelector(".message-main");
             container.scrollTop = container.scrollHeight;
+        }
+    },
+    filters : {
+        timestamp(value){
+            return value.replace(',','');
         }
     }
 });
