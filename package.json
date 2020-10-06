@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/islocated/node-paint-electron-vue#readme",
   "dependencies": {
-    "electron": "^8.2.4",
+    "electron": "^8.5.1",
     "esm": "^3.2.25"
   },
   "type":"module"
